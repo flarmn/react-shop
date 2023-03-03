@@ -12,6 +12,36 @@ console.log("Shop loaded")
 const [goods, setGoods] = useState([]);
 const [loading, setLoading] = useState(true);
 const [order, setOrder] = useState([])
+console.log('order', order)
+
+const addToBasket  = (item) => {
+   /// console.log("addToBasket", addToBasket)
+    const itemIndex = order.findIndex(orderItem => orderItem.mainId === item.mainId)
+   // console.log('itemIndex', itemIndex)
+    if(itemIndex < 0){
+        const newItem = {
+            ...item,
+            quantity:1,
+        }
+        setOrder([...order, newItem])
+    }else{
+        const newOrder = order.map((orderItem, index)=>{
+            if(index === itemIndex){
+                return {
+                    ...orderItem,
+                    quantity: orderItem.quantity + 1
+                }
+            }else{
+                return item; 
+            }
+        }) 
+
+        setOrder(newOrder);
+    }
+
+
+   
+}
 
 useEffect(function getGoods(){
     console.log("Shops useEffect started")
@@ -28,7 +58,7 @@ useEffect(function getGoods(){
 
     return <main className="container content">
         <Cart quantity = {order.length} />
-        {loading ? <Preloader /> : <GoodsList goods={goods} />}
+        {loading ? <Preloader /> : <GoodsList goods={goods} addToBasket = {addToBasket} />}
     </main>
 }
 
