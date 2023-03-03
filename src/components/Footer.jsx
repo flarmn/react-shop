@@ -1,4 +1,5 @@
 function Footer(){
+    console.log("Footer loaded")
     return <footer className="page-footer green lightgreen-4">
         <div className="footer-copyright">
             <div className = "container">

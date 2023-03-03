@@ -1,4 +1,5 @@
 function GoodsItem(props) {
+    console.log('props from GoodsItem',props)
     const {
         mainId,
         displayName,
