@@ -53,6 +53,36 @@ const handleBasketShow = () =>{
     setBasketShow(!isBasketShow);
 }
 
+const incQuantity = (itemId) => {
+    const newOrder = order.map((el) => {
+        if(el.mainId === itemId){
+            const newQuantity = el.quantity + 1;
+            return {
+                ...el,
+                quantity: newQuantity,
+            };
+        }else{
+            return el;
+        }
+    });
+    setOrder(newOrder)
+}
+
+const decQuantity = (itemId) => {
+    const newOrder = order.map((el) => {
+        if(el.mainId === itemId){
+            const newQuantity = el.quantity - 1;
+            return {
+                ...el,
+                quantity: newQuantity >=0 ? newQuantity : 0,
+            };
+        }else{
+            return el;
+        }
+    });
+    setOrder(newOrder); 
+}
+
 useEffect(function getGoods(){
     console.log("Shops useEffect started")
     fetch(API_URL, {
@@ -79,6 +109,8 @@ useEffect(function getGoods(){
                                 order = {order} 
                                 handleBasketShow = {handleBasketShow}
                                 removeFromBasket = {removeFromBasket}
+                                incQuantity = {incQuantity}
+                                decQuantity = {decQuantity}
                             />
         }
 
