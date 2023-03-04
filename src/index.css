@@ -64,6 +64,7 @@ nav{
   background-color: white;
   width: 50 rem;
   max-width: 95%;
+  animation: show 750ms ease-in-out;
 }
 
 
@@ -77,4 +78,17 @@ nav{
 
 .basket-delete{
   cursor: pointer;
+}
+
+/* ANIMATIONS */
+
+@keyframes show {
+  from {
+    top:70%;
+    opacity: 0;
+  }
+  to{
+    top:50%;
+    opacity: 1;
+  }
 }
