@@ -55,3 +55,26 @@ nav{
 .cart-quantity{
 
 }
+
+.basket-list{
+  position:fixed;
+  top:50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  width: 50 rem;
+  max-width: 95%;
+}
+
+
+.basket-close{
+  cursor: pointer;
+  position:absolute;
+  top:10px;
+  right:0.5rem;
+  color:white;
+}
+
+.basket-delete{
+  cursor: pointer;
+}
