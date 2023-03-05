@@ -1,7 +1,6 @@
 import {GoodsItem} from './GoodsItem'
 
 function GoodsList(props){
-   // console.log('props from GoodsList',props)
     const {goods = [], addToBasket = Function.prototype } = props;
 
     if(!goods.length ){

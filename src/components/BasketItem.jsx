@@ -10,8 +10,6 @@ function BasketItem(props){
         decQuantity = Function.prototype,
     } = props;
 
-    console.log("props from BasketItem", props)
-
     return <li className = "collection-item">
                 {displayName} <i className = "material-icons basket-quantity" onClick = {()=>decQuantity(mainId)}>remove</i> x {quantity} {' '} <i className = "material-icons basket-quantity" onClick = {()=>incQuantity(mainId)}>add</i>  = {price.finalPrice * quantity}
                 
